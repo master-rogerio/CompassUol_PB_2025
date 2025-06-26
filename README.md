@@ -1,2 +1,5 @@
-# CompassUol_PB_2025
-Programa de Bolsas Compass UOL 2025 em DevSecOps.
+![Logo Compass UOL](assets/logoCompass.png)
+# Compass Uol Scholarship - PB 2025
+
+
+Participação no programa de bolsas Compass UOL 2025 em DevSecOps.
