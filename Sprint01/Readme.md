@@ -6,7 +6,7 @@
 <br>
 <p align="justify"> A execução do projeto foi dividida em várias etapas: </p>
 
-1. [**Configuração do Ambiente**](#configuração-do-ambiente)
+1. [**Configuração do Ambiente**](#configuracao-do-ambiente)
    - Criação da VPC com 2 Sub-redes Públicas e 2 sub-redes privadas;
    - Configuração e criação de uma instância EC2 na AWS utiliazndo Linux (com uso das VPCs criadas).
 2. **Configuração do Servidor Web**
