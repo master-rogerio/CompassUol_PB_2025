@@ -172,7 +172,7 @@ else
 <b>
 
 ### 4 Testes
-<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp; Foi realizado o acesso à instância recém-configurada da AWS a partir de um sistema local com Debian, por meio de conexão SSH. A autenticação foi feita utilizando a chave privada gerada durante a configuração da instância, juntamente com o endereço IP público atribuído.</p><br>
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp; Para verificar se tudo funcionava conforme necessário. Inicialmente foi verificado se o script `monitor_site.sh` estava escrevendo no log, armazenado em ´var/log` com o nome de `monitor_site.log`, uma vez por minuto.</p><br>
 
 ### 5 Desafio Bônus
 <p align="justify">&nbsp;&nbsp;&nbsp;&nbsp; Foi realizado o acesso à instância recém-configurada da AWS a partir de um sistema local com Debian, por meio de conexão SSH. A autenticação foi feita utilizando a chave privada gerada durante a configuração da instância, juntamente com o endereço IP público atribuído.</p><br>
