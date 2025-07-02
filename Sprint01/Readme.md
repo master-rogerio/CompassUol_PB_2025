@@ -6,7 +6,7 @@
 <br>
 <p align="justify"> A execução do projeto foi dividida em várias etapas: </p>
 
-1. **[Configuração do Ambiente](#configuração-do-ambiente)**
+1. [**Configuração do Ambiente**](#configuração-do-ambiente)
    - Criação da VPC com 2 Sub-redes Públicas e 2 sub-redes privadas;
    - Configuração e criação de uma instância EC2 na AWS utiliazndo Linux (com uso das VPCs criadas).
 2. **Configuração do Servidor Web**
@@ -15,7 +15,7 @@
 3. **Script de Monitoramento com Webhook**
    - Script Bash que verifica a cada 60 segundos o estado da página (Disponível / Indisponível);
    - Disparo de mensagem pelo Script Bash para o Telegram avisando da indisponibilidade.
-4. **[Testes](#testes)**
+4. [**Testes**](#testes)
    - Realização de testes para confirmar o correto funcionamento de toda a implementação.
 5. **Desafio Bônus**
     - Criação de Script para ser inserido no campo "Dados de Usuário" durante a criação da instância EC2.
