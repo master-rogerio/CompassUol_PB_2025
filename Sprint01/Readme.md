@@ -1,15 +1,45 @@
 # Sprint 01 - Projeto Linux com Servidor Web na AWS e Monitoramento Webhook com Telegram
 ###### Por Rogério Anastácio
 
-## Descrição
-O objetivo desse projeto é aprofundar os conhecimentos em Linux, servidor web com o uso de estrutura AWS para hospedar os sistemas.
+## 📝 Descrição
+<p align="justify">O objetivo desse projeto é implementar um sistema de monitoramento Web com notificações em tempo real. Aplicando os conhecimentos adquiridos em Linux, servidor web usando a estrutura AWS para hospedar os sistemas. É disponibilizado o relatório completo </p>
+<br>
+<p align="justify"> A execução do projeto foi dividida em várias etapas: </p>
 
-[📄 Acesse o relatório final](documentacao.pdf)
+1. **[Configuração do Ambiente](configuração-do-Ambiente)**
+   - Criação da VPC com 2 Sub-redes Públicas e 2 sub-redes privadas;
+   - Configuração e criação de uma instância EC2 na AWS utiliazndo Linux (com uso das VPCs criadas).
+2. **Configuração do Servidor Web**
+   - Instalação do Nginx;
+   - Subir página HTML para o Nginx exibir.
+3. **Script de Monitoramento com Webhook**
+   - Script Bash que verifica a cada 60 segundos o estado da página (Disponível / Indisponível);
+   - Disparo de mensagem pelo Script Bash para o Telegram avisando da indisponibilidade.
+4. **Testes**
+   - Realização de testes para confirmar o correto funcionamento de toda a implementação.
+5. **Desafio Bônus**
+    - Criação de Script para ser inserido no campo "Dados de Usuário" durante a criação da instância EC2.
+<br>
+
+### [📄 Acesse aqui o **relatório** final e completo do projeto (em pdf).](documentacao.pdf)
+
+<br><br>
 
 ### 🔧 Arquitetura de Integração Automatizada com AWS e Telegram
 a
 
-## Estrutura do Projeto
+## **1.Configuração do Ambiente**
+a
+
+## **2.Configuração do Ambiente**
+a
+
+## **3.Configuração do Ambiente**
+a
+
+## **4.Testes**
+b
+## **5.Desafio Bônus**
 
 
 ## 📊 Diagrama de Arquitetura do Sistema
