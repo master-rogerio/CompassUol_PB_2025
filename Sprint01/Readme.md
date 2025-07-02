@@ -4,7 +4,7 @@
 ## Descrição
 O objetivo desse projeto é aprofundar os conhecimentos em Linux, servidor web com o uso de estrutura AWS para hospedar os sistemas.
 
-
+[📄 Acesse o relatório final](documentacao.pdf)
 
 ### 🔧 Arquitetura de Integração Automatizada com AWS e Telegram
 a
