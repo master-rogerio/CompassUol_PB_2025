@@ -15,7 +15,7 @@
 3. **Script de Monitoramento com Webhook**
    - Script Bash que verifica a cada 60 segundos o estado da página (Disponível / Indisponível);
    - Disparo de mensagem pelo Script Bash para o Telegram avisando da indisponibilidade.
-4. [**Testes**](# testes)
+4. [**Testes**](#testes)
    - Realização de testes para confirmar o correto funcionamento de toda a implementação.
 5. **Desafio Bônus**
     - Criação de Script para ser inserido no campo "Dados de Usuário" durante a criação da instância EC2.
