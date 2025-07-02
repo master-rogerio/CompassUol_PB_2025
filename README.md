@@ -14,6 +14,7 @@ Participação no programa de bolsas Compass UOL 2025 em DevSecOps.
 ## 🧾 Índice
 
 - [Sprint 01 - Projeto Linux com servidor Web usando AWS](https://github.com/master-rogerio/CompassUol_PB_2025/tree/main/Sprint01)
+```
 - [Funcionalidades](#funcionalidades)
 - [Demonstração](#demonstração)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -23,6 +24,7 @@ Participação no programa de bolsas Compass UOL 2025 em DevSecOps.
 - [Contribuindo](#contribuindo)
 - [Licença](#licença)
 - [Contato](#contato)
+```
 
 ## 📖 Sobre
 
