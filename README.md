@@ -8,13 +8,12 @@ Participação no programa de bolsas Compass UOL 2025 em DevSecOps.
 --- Edit After ----
 
 
-# 🚀 Nome do Projeto
+# 🚀 DevSevOps
 
-Descrição curta e impactante sobre o que seu projeto faz. Uma ou duas frases que chamem a atenção.
 
 ## 🧾 Índice
 
-- [Sobre](#sobre)
+- Sprint 01 (https://github.com/master-rogerio/CompassUol_PB_2025/tree/main/Sprint01)
 - [Funcionalidades](#funcionalidades)
 - [Demonstração](#demonstração)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
