@@ -31,15 +31,15 @@ a
 ## 1 **Configuração do Ambiente**
 a
 
-## **2.Configuração do Ambiente**
+## 2 **Configuração do Ambiente**
 a
 
-## **3.Configuração do Ambiente**
+## 3 **Configuração do Ambiente**
 a
 
-## **4. Testes**
+## 4 **Testes**
 b
-## **5.Desafio Bônus**
+## 5 **Desafio Bônus**
 
 
 ## 📊 Diagrama de Arquitetura do Sistema
