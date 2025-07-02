@@ -28,7 +28,7 @@
 ### 🔧 Arquitetura de Integração Automatizada com AWS e Telegram
 a
 
-## 1 **Configuração do Ambiente**
+## 1 Configuração do Ambiente
 a
 
 ## 2 **Configuração do Ambiente**
