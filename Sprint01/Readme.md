@@ -88,20 +88,94 @@ graph TD
 ### 2 Configuração do Servidor Web
 <p align="justify">&nbsp;&nbsp;&nbsp;&nbsp; Foi realizado o acesso à instância recém-configurada da AWS a partir de um sistema local com Debian, por meio de conexão SSH. A autenticação foi feita utilizando a chave privada gerada durante a configuração da instância, juntamente com o endereço IP público atribuído.</p><br>
 
--Instalação do Nginx: Instalado o Nginx utilizando o instalador de pacotes padrão *apt*;
-   - Após a Instalação foi verificado se o serviço entrou em execução, caso necessário o serviço pode ser inicido manualmente com *systemctl start nginx*.
-     
+- Instalação do Nginx: Instalado o Nginx utilizando o instalador de pacotes padrão *apt*;
+   - Após a Instalação foi verificado se o serviço entrou em execução, caso necessário o serviço pode ser iniciado manualmente com `systemctl start nginx`.
+   - Acessado o site padrão do Nginx usando o endereço de IP público da instância.
+![Site Padrão Nginx](https://github.com/master-rogerio/CompassUol_PB_2025/blob/main/assets/s01-padraoNginx.jpg)
+<br>
 
--Realizado a cópia do site criado para substituir a página padrão do Nginx e armazenado no repositório do **GitHub**
-
+- Realizado a cópia do site com o `curl` para substituir a página padrão do Nginx e armazenado no repositório do **GitHub** e armazenado no diretório `/tmp/`.
+  ```bash
+  curl -L "https://github.com/master-rogerio/CompassUol_PB_2025/raw/refs/heads/main/Sprint01/site.zip" -o "/tmp/site.zip"
+  ```
+  - O arquivo copiado foi descompactado com o *unzip*. Após descompactar o site foi removido o arquivo copiado.
+    ```bash
+    unzip -q -o "/tmp/site.zip" -d "/var/www/html/"
+    rm -f "/tmp/site.zip"
+    ```
+  - Foi alterado o dono e o grupo de todos os arquivos para o `www-data` (Usuário padrão do Nginx)
+    ```bash
+    chown -R www-data:www-data /var/www/html
+    ```
+  - Depois alterado a permissão de todos os diretórios do site para que usuário proprietário possa ler, gravar e executar. Enquanto o grupo outros usuários possam ler e executar.
+    ```bash
+    sudo find /var/www/html -type d -exec chmod 755 {} \;
+    ```
+  - Também foi alterado a permissão dos arquivos para que o proprietário possa ler e escrever enquanto os outros possam somente realizar a leitura.
+    ```bash
+    sudo find /var/www/html -type f -exec chmod 644 {} \;
+    ```
+    - Foi acessado novamente o site com o ip público da instância EC2 para verificar se o site que foi inserido já passou a ser disponibilizado pelo Nginx.
+<br>
+   
+  ![Site Feito](https://github.com/master-rogerio/CompassUol_PB_2025/blob/main/assets/s01-padraoFeito.jpg)
 
 ### 3 Script de Monitoramento com Webhook
-a
+   - O script de monitoramento `monitor_site.sh`, foi armazenado em `/usr/local/bin/`, é usado para verificar a disponibilidade do site.
+   ```bash
+   #!/bin/bash
+   #Busca Parametros armazenados no Repositorio de Parametros AWS (IAM)
+   aws configure set region us-east-1
+   TELEGRAM_BOT_TOKEN=$(aws ssm get-parameter --name "/telegram/bot_token" --with-decryption --query "Parameter.Value" --output text)
+   TELEGRAM_CHAT_ID=$(aws ssm get-parameter --name "/telegram/chat_id" --query "Parameter.Value" --output text)
+
+   # Configurações do Telegram
+   BOT_TOKEN="$TELEGRAM_BOT_TOKEN"
+   CHAT_ID="$TELEGRAM_CHAT_ID"
+
+   SITE_URL="http://$(curl -s https://checkip.amazonaws.com/)" # Busca Ip Publico
+
+   response=$(curl -s -o /dev/null -w "%{http_code}" $SITE_URL) # Verifica resposta do site
+
+   timestamp=$(date "+%Y-%m-%d %H:%M:%S") #Variavel que armazena Data e Hora atual
+
+   if [ "$response" -eq 200 ]; then
+       echo "[$timestamp] Site $SITE_URL está respondendo normalmente. Código: $response" >> /var/log/monitor_site.log
+else
+       echo "[$timestamp] ALERTA: $SITE_URL não está respondendo. Código: $response" >> /var/log/monitor_site.log
+    
+       # Envia mensagem para o Telegram
+       message="🚨 *ALERTA DE MONITORAMENTO* 🚨
+    
+       O site está Offline!
+    
+	    *IP:* $SITE_URL
+       *Código HTTP:* $response
+       *Hora:* $timestamp"
+    
+       curl -s -X POST \
+           "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+           -d chat_id="$CHAT_ID" \
+           -d text="$message" \
+           -d parse_mode="Markdown" >> /dev/null
+   fi
+
+   ```
+<b>
+
+   - Esse script verifica se o site está disponível fazendo a requisição do código http do site com o`curl`. Se retornado o código *200* significa que o site está online e caso contrário significa o oposto e assim é enviado mensagem pelo *bot do Telegram* avisando dessa indisponibilidade. Esse script faz escrita no log a cada 60 segundos, com o código http obtido.
+   - O *Cron* é utilizado para agendar a execução do script, sendo chamado por `crontab -e`. Foi escrito o seguinte código nele:
+   ```
+      * * * * * /usr/local/bin/monitor_site.sh"
+   ```
+
+<b>
 
 ### 4 Testes
-b
-### 5 Desafio Bônus
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp; Foi realizado o acesso à instância recém-configurada da AWS a partir de um sistema local com Debian, por meio de conexão SSH. A autenticação foi feita utilizando a chave privada gerada durante a configuração da instância, juntamente com o endereço IP público atribuído.</p><br>
 
+### 5 Desafio Bônus
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp; Foi realizado o acesso à instância recém-configurada da AWS a partir de um sistema local com Debian, por meio de conexão SSH. A autenticação foi feita utilizando a chave privada gerada durante a configuração da instância, juntamente com o endereço IP público atribuído.</p><br>
 
 
 
